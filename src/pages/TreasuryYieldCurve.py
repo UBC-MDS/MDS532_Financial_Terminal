@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 
 # Add the project's root directory to Python's module search path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from treasury_yield import getUSTreasuryYield, getCanadaTreasuryYield, getChinaTreasuryYield
+from treasury_yield_data import getUSTreasuryYield, getCanadaTreasuryYield, getChinaTreasuryYield
 
 def plotTreasuryYieldFig(df):
     """

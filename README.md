@@ -1,6 +1,7 @@
 # MDS532 Financial Terminal
 
 ## Author
+
 Ke Gao (kegao1995@gmail.com)
 
 ## Project Overview
@@ -67,19 +68,20 @@ This application is a financial data visualization tool primarily focused on **T
 
 ## Project Structure
 
-```
 MDS532_Financial_Terminal
+├── img                 // Video resources
+├── data                // Data storage directory
 ├── src                 // Source code directory
 │   ├── pages           // Page components
 │   │   ├── Index.py    // Home page
 │   │   ├── TreasuryYieldCurve.py  // Treasury Yield Curve page
 │   │   ├── StockReturnAnalysis.py // Stock Return Analysis page
-│   ├── plot.py           // Plotting components
-│   ├── xueqiu_data.py    // Xueqiu data interface  
+│   ├── plot.py                   // Plotting components
+│   ├── xueqiu_data.py            // Xueqiu data interface
+│   ├── treasury_yield_data.py    // Treasury yield data interface
 └── README.md           // Project documentation
 └── requirements.txt    // Dependency list
 └── LICENSE             // License agreement
-```
 
 ## Contribution Guidelines
 
