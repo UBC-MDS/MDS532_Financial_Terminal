@@ -1,8 +1,7 @@
 # MDS532 Financial Terminal
 
 ## Author
-
-    Ke Gao (kegao1995@gmail.com)
+Ke Gao (kegao1995@gmail.com)
 
 ## Project Overview
 
