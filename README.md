@@ -61,6 +61,10 @@ This application is a financial data visualization tool primarily focused on **T
 - Use the sidebar to switch between different data views, such as historical charts, indicator analysis, etc.
 - For detailed usage instructions, please refer to the project documentation or the built-in help feature.
 
+## Video Walkthrough
+
+![Video Walkthrough](img/demo.mp4)
+
 ## Project Structure
 
 ```
