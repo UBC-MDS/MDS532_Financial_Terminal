@@ -61,7 +61,7 @@ def plotTreasuryYieldFig(df):
         template="plotly_white",
         legend=dict(orientation="h", x=0.5, y = 1.2, xanchor="center"),
         hovermode="x unified",
-        height=600,  # 设置图表高度为600
+        height=500,  # 设置图表高度
         dragmode=False  # 禁止拖动
     )
     
