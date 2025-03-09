@@ -6,7 +6,6 @@ import pytz
 
 import requests
 
-
 # Extract headers
 headers = {
     "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
@@ -41,32 +40,27 @@ cookies = {
     "HMACCOUNT": "90AC0DA1311E6AC3",
 }
 
-
-
-
 def get_current_newyork_time():
-    # 获取当前UTC时间
+    # Get current UTC time
     utc_now = datetime.now(pytz.utc)
-    # 将UTC时间转换为北京时间
-    beijing_tz = pytz.timezone('America/New_York')
-    beijing_now = utc_now.astimezone(beijing_tz)
-    # 将北京时间转换为毫秒时间戳
-    milliseconds = int(beijing_now.timestamp() * 1000)
+    # Convert UTC time to New York time
+    newyork_tz = pytz.timezone('America/New_York')
+    newyork_now = utc_now.astimezone(newyork_tz)
+    # Convert New York time to milliseconds timestamp
+    milliseconds = int(newyork_now.timestamp() * 1000)
     return milliseconds
 
-
-
 def calculate_date_difference(date_str, timezone_str):
-    # 将字符串转换为日期对象，并指定时区
+    # Convert string to date object and specify timezone
     date = pd.to_datetime(date_str).tz_localize(timezone_str)
     
-    # 获取当前时间，并指定时区
+    # Get current time and specify timezone
     current_date = datetime.now(pytz.timezone(timezone_str))
     
-    # 计算日期差距
+    # Calculate date difference
     date_diff = current_date - date
     
-    # 输出日期差距（以天为单位）
+    # Output date difference (in days)
     return date_diff.days
 
 def getUSStockHistoryByDate(symbol, start_date = '2025-01-01', end_date = '9999-12-31'):
@@ -81,36 +75,33 @@ def getUSStockHistoryByDate(symbol, start_date = '2025-01-01', end_date = '9999-
     response = requests.get(url, headers=headers, cookies=cookies)
     response_json = response.json()
     
-    # 提取列名和数据项
+    # Extract column names and data items
     columns = response_json['data']['column']
     items = response_json['data']['item']
 
-    # 将数据项转换为 DataFrame，并设置列名
+    # Convert data items to DataFrame and set column names
     df = pd.DataFrame(items, columns=columns)
 
-    # 计算 60 日移动均线（MA60）
+    # Calculate 60-day moving average (MA60)
     df['MA60'] = df['close'].rolling(window=60).mean()
-    # 计算 120 日移动均线（MA120）
+    # Calculate 120-day moving average (MA120)
     df['MA120'] = df['close'].rolling(window=120).mean()
     
-    # 将 timestamp 转换为 pandas 的 datetime 对象并筛选
+    # Convert timestamp to pandas datetime object and filter
     df['Timestamp_str'] = pd.to_datetime(df['timestamp'], unit='ms', utc=True).dt.tz_convert(timezone)
     df = df[df['Timestamp_str'] >= start_date]
     df = df[df['Timestamp_str'] <= end_date]
 
-    # 将筛选后的 timestamp 转换为字符串格式
+    # Convert filtered timestamp to string format
     df['Timestamp_str'] = df['Timestamp_str'].dt.strftime('%Y-%m-%d')
     
     df['percent'] = df['percent'].div(100)
     df['turnoverrate'] = df['turnoverrate'].div(100)
-    # 加入 Ticker 列
+    # Add Ticker column
     df['Ticker'] = symbol
 
     return df
 
-
-# %%
 if __name__ == "__main__":
-
     df = getUSStockHistoryByDate('AAPL')
 # %%

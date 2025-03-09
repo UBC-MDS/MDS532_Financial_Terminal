@@ -1,5 +1,5 @@
 import streamlit as st
-# 设置页面宽度
+# Set page width
 st.set_page_config(layout="wide")
 pages = {
     "TreasuryBond":[

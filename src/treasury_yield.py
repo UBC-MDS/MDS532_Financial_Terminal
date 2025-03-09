@@ -26,7 +26,7 @@ def getUSTreasuryYield():
         # Check if the JSON structure is complete
         if not (current and month_ago and year_ago and attr):
             print("Incomplete or empty JSON structure")
-            return None
+            return pd.read_csv("../data/raw/us_treasury_yield.csv")
 
         # Build the DataFrame with yield data
         df = pd.DataFrame({
@@ -46,7 +46,7 @@ def getUSTreasuryYield():
         return df
     else:
         print(f"Request failed, status code: {response.status_code}")
-        return None
+        return pd.read_csv("../data/raw/us_treasury_yield.csv")
 
 def getCanadaTreasuryYield():
     """
@@ -73,7 +73,7 @@ def getCanadaTreasuryYield():
         # Check if the JSON structure is complete
         if not (current and month_ago and year_ago and attr):
             print("Incomplete or empty JSON structure")
-            return None
+            return pd.read_csv("../data/raw/canada_treasury_yield.csv")
 
         # Build the DataFrame with yield data
         df = pd.DataFrame({
@@ -90,7 +90,7 @@ def getCanadaTreasuryYield():
         return df
     else:
         print(f"Request failed, status code: {response.status_code}")
-        return None
+        return pd.read_csv("../data/raw/canada_treasury_yield.csv")
 
 def getChinaTreasuryYield():
     """
@@ -117,7 +117,7 @@ def getChinaTreasuryYield():
         # Check if the JSON structure is complete
         if not (current and month_ago and year_ago and attr):
             print("Incomplete or empty JSON structure")
-            return None
+            return pd.read_csv("../data/raw/china_treasury_yield.csv")
 
         # Build the DataFrame with yield data
         df = pd.DataFrame({
@@ -134,6 +134,16 @@ def getChinaTreasuryYield():
         return df
     else:
         print(f"Request failed, status code: {response.status_code}")
-        return None
+        return pd.read_csv("../data/raw/china_treasury_yield.csv")
 
+# %%
+if __name__=="__main__":
+    # Test the functions
+    us_treasury_yield = getUSTreasuryYield()
+    canada_treasury_yield = getCanadaTreasuryYield()
+    china_treasury_yield = getChinaTreasuryYield()
+
+    us_treasury_yield.to_csv("../data/raw/us_treasury_yield.csv", index=False)
+    canada_treasury_yield.to_csv("../data/raw/canada_treasury_yield.csv", index=False)
+    china_treasury_yield.to_csv("../data/raw/china_treasury_yield.csv", index=False)
 # %%

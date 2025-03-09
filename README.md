@@ -81,12 +81,6 @@ MDS532_Financial_Terminal
 
 We welcome contributions to this project. If you have new feature suggestions or find any issues, please contact us via Issue or Pull Request:
 
-- Fork this repository
-- Create a new branch: `git checkout -b feature/your-feature`
-- Commit your changes: `git commit -am 'Add some feature'`
-- Push the branch: `git push origin feature/your-feature`
-- Submit a Pull Request
-
 ## License
 
 This project is licensed under the GNU AGPL 3.0 License. Please see the [LICENSE](./LICENSE) file for more details.
