@@ -1,22 +1,26 @@
 # MDS532 Financial Terminal
 
 ## Author
+
     Ke Gao (kegao1995@gmail.com)
 
 ## Project Overview
 
 MDS532 Financial Terminal is a desktop tool for financial data analysis, real-time stock market queries, and related information display. This project aims to provide users with an efficient and intuitive financial data terminal solution.
 
-## Main Features
+[https://financial-terminal.streamlit.app/](https://financial-terminal.streamlit.app/)
+
+## Features
 
 This application is a financial data visualization tool primarily focused on **Treasury Yield Curve Analysis** and **US Stock Return Analysis**, suitable for investors, analysts, and financial researchers.
 
 1. **Treasury Yield Curve Analysis**:
+
    - Allows users to select countries (e.g., USA, Canada, China).
    - Displays yield curves for different maturities in line charts.
    - Provides comparisons of current yield, yield one month ago, and yield one year ago to analyze yield curve trends.
-
 2. **US Stock Return Comparison**:
+
    - Allows users to select time ranges (e.g., 2024-01-01 to 2025-03-09).
    - Allows users to select multiple stocks (e.g., AAPL, MSFT, NVDA).
    - Displays cumulative returns of selected stocks over the time range in line charts.
@@ -27,8 +31,8 @@ This application is a financial data visualization tool primarily focused on **T
      - **Calmar Ratio**
      - **Annualized Volatility**
      - **Sharpe Ratio**
-
 3. **Interactive Features**:
+
    - **Dynamic Country Selection**: Switch between yield curves of different countries.
    - **Custom Time Range**: Adjust the time range for stock return analysis.
    - **Stock Code Selection**: Select multiple stocks for return comparison analysis.
@@ -48,9 +52,9 @@ This application is a financial data visualization tool primarily focused on **T
    streamlit run src/pages/Index.py --server.port 8501
    ```
 4. Open the webpage:
-    ```
-    http://localhost:8501
-    ```
+   ```
+   http://localhost:8501
+   ```
 
 ## Usage
 
@@ -68,7 +72,7 @@ MDS532_Financial_Terminal
 │   │   ├── TreasuryYieldCurve.py  // Treasury Yield Curve page
 │   │   ├── StockReturnAnalysis.py // Stock Return Analysis page
 │   ├── plot.py           // Plotting components
-│   ├── xueqiu_data.py    // Xueqiu data interface    
+│   ├── xueqiu_data.py    // Xueqiu data interface  
 └── README.md           // Project documentation
 └── requirements.txt    // Dependency list
 └── LICENSE             // License agreement
@@ -91,4 +95,3 @@ This project is licensed under the GNU AGPL 3.0 License. Please see the [LICENSE
 ## Contact
 
 If you have any questions or suggestions, please contact Ke Gao (kegao1995@gmail.com).
-
